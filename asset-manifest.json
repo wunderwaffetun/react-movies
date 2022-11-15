@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wunderwaffetun/react-movies/static/css/main.06d63db8.css",
+    "main.js": "/wunderwaffetun/react-movies/static/js/main.b5149c86.js",
+    "index.html": "/wunderwaffetun/react-movies/index.html",
+    "main.06d63db8.css.map": "/wunderwaffetun/react-movies/static/css/main.06d63db8.css.map",
+    "main.b5149c86.js.map": "/wunderwaffetun/react-movies/static/js/main.b5149c86.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.06d63db8.css",
+    "static/js/main.b5149c86.js"
+  ]
+}
