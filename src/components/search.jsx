@@ -3,7 +3,11 @@ import React from "react"
 
 class Searcher extends React.Component {
     state = {
-        value: "matrix"
+        value: ""
+    }
+
+    componentDidMount(){
+        this.setState({value: this.props.defaultValue})
     }
 
     handleSearch = (event) => {

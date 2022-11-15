@@ -12,7 +12,8 @@ class Main extends React.Component {
         this.state = {
             movies: [],
             currentSearching: "matrix",
-            choice: "All"
+            choice: "All",
+            page: 1
         }
     }
 
@@ -25,11 +26,13 @@ class Main extends React.Component {
         )
     }
 
+    
+
     udpdateFilms = () => {
         fetch(
             `https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=${
                 this.state.currentSearching
-            }${this.state.choice !== "All" ? `&type=${this.state.choice}` : ""}`
+            }${this.state.choice !== "All" ? `&type=${this.state.choice}` : ""}&page=${this.state.page}`
         )
             .then((data) => data.json())
             .then((data) => {
@@ -45,7 +48,7 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=matrix`)
+        fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=${this.state.currentSearching}&page=${this.state.page}`)
             .then((data) => data.json())
             .then((data) => {
                 this.setState({ movies: data.Search })
@@ -56,7 +59,7 @@ class Main extends React.Component {
         const { movies } = this.state
         return (
             <main className="content container">
-                <Searcher search={this.filmValue} />
+                <Searcher search={this.filmValue} defaultValue={this.state.currentSearching}/>
                 <Ratio rad={this.updateChoice}></Ratio>
                 {Array.isArray(movies) ? (
                     movies.length !== 0 ? (
